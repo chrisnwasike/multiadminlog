@@ -1,0 +1,32 @@
+.multiadminlog_wrapper .records {
+  padding: 15px;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  border-top: none;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+.records .logger {
+  width: 100%;
+  float: left;
+  padding-bottom: 5px;
+}
+
+.logger .logger_info {
+  font-weight: bold;
+}
+
+.logger .log_date {
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.records .log_proper {
+  width: 100%;
+  padding: 10px;
+}
+
+textarea .multiadminlog_proper {
+  width: 500px;
+}
