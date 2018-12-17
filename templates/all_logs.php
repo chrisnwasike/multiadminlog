@@ -22,6 +22,7 @@ $version    = get_option( 'multiadminlog_db_version' );
   <div class="multiadminlog_wrapper">
     <table>
     </table>
+      <?php if ( count($all_logs) > 0 ) { ?>
       <?php foreach ($all_logs as $logs) { ?>
         <div class="records">
         <?php
@@ -44,6 +45,11 @@ $version    = get_option( 'multiadminlog_db_version' );
 
         </div> <!-- records -->
       <?php } ?>
+    <?php } else { ?>
+      <div class="records">
+        <?php esc_html_e( 'No logs found.', 'multiadminlog' ); ?>
+      </div>
+    <?php } ?>
 
   </div> <!--multiadminlog_wrapper-->
 
