@@ -17,7 +17,7 @@ A must for WordPress Development agencies that manage multiple sites and have mu
 
 == Upgrade Notice ==
 
-= 0.1 =
+= 1.0 =
 Initial Release
 
 == Installation ==
