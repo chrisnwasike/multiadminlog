@@ -1,2 +1,2 @@
-alert( multiadmins.hook );
-//alert('Hey hey hey!');
+// Simple code to get the name of each page
+// alert( multiadmins.hook );

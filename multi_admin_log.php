@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name:  Multi-Admin Log
-Plugin URI:   https://chrisnwasike.github.io/multiadminlog
+Plugin URI:   https://github.com/chrisnwasike/multiadminlog
 Description:  Adds a Multi-Admin Log menu in the Admin section of WordPress for Site Administrators to add Logs.
 Version:      1.0.0
 Author:       Chris Nwasike
