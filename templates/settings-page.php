@@ -1,8 +1,12 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
+
+if ( !current_user_can( 'manage_options' ) ) {
+  exit;
+}
 
 if ( $_POST['submit'] == 'Save Log' )
 {
-
   if ( isset( $_POST['multiadminlog_proper'] ) && !empty( $_POST['multiadminlog_proper'] ) )
   {
     global $wpdb;

@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 // Load CSS on all admin pages
 function multiadminlog_admin_styles( $hook ) {

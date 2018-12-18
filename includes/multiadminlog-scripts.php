@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 function multiadminlog_admin_scripts ( $hook ) {
 

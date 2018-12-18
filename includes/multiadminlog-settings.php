@@ -1,5 +1,7 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 function multiadminlog_settings () {
 
   //if plugin settings don't exist, then create them
