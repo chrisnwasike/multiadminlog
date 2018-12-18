@@ -5,10 +5,14 @@ if ( !current_user_can( 'manage_options' ) ) {
   exit;
 }
 
+
 if ( $_POST['submit'] == 'Save Log' )
 {
   if ( isset( $_POST['multiadminlog_proper'] ) && !empty( $_POST['multiadminlog_proper'] ) )
   {
+
+    check_admin_referer('add_log_action', '_multiadmin_nonce' );
+
     global $wpdb;
 
     $table_name       = $wpdb->prefix . "multiadminlog";
@@ -52,6 +56,9 @@ function multiadminlog_form_feedback_message( $message, $mode ) {
   <h1><?php esc_html_e( get_admin_page_title() ) ?></h1>
 
   <form method="post" action="">
+
+    <!-- Created a nonce field -->
+    <?php wp_nonce_field('add_log_action', '_multiadmin_nonce'); ?>
 
     <!-- The function that was created in settings page -->
     <?php settings_fields( 'multiadminlog_settings_section' ); ?>
