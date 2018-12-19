@@ -10,28 +10,32 @@ if ( $_POST['submit'] == 'Save Log' )
 {
   if ( isset( $_POST['multiadminlog_proper'] ) && !empty( $_POST['multiadminlog_proper'] ) )
   {
+    if ( check_admin_referer( 'add_log_action', '_multiadmin_nonce' ) )
+    {
+      global $wpdb;
 
-    check_admin_referer('add_log_action', '_multiadmin_nonce' );
+      $table_name       = $wpdb->prefix . "multiadminlog";
+      $the_esc_log      = esc_sql( $_POST['multiadminlog_proper'] );
+      $current_user     = wp_get_current_user();
+      $current_user_id  = $current_user->id;
+      $curr_time        = current_time( 'mysql' );
 
-    global $wpdb;
+      $wpdb->insert( $table_name,
+        array(
+          'admin_log' => $the_esc_log,
+          'admin_id'  => $current_user_id,
+          'time'      => $curr_time
+        )
+      );
 
-    $table_name       = $wpdb->prefix . "multiadminlog";
-    $the_esc_log      = esc_sql( $_POST['multiadminlog_proper'] );
-    $current_user     = wp_get_current_user();
-    $current_user_id  = $current_user->id;
-    $curr_time        = current_time( 'mysql' );
-
-    $wpdb->insert( $table_name,
-      array(
-        'admin_log' => $the_esc_log,
-        'admin_id'  => $current_user_id,
-        'time'      => $curr_time
-      )
-    );
-
-    $message = __( 'Log has been added', 'multiadminlog' );
-    multiadminlog_form_feedback_message( $message, 'success' );
-
+      $message = __( 'Log has been added', 'multiadminlog' );
+      multiadminlog_form_feedback_message( $message, 'success' );
+    }
+    else
+    {
+      $message = __( 'Security verification failed please try again', 'multiadminlog' );
+      multiadminlog_form_feedback_message( $message, 'error' );
+    }
   }
   else
   {
